@@ -127,3 +127,5 @@ set visualbell
 
 runtime! ftplugin/man.vim
 nmap K <Leader>K
+
+command! -n=0 Cdl lcd %:p:h
