@@ -129,5 +129,8 @@ nmap K <Leader>K
 " Change directory of the current buffer to be the same as the file
 command! -n=0 Cdl lcd %:p:h
 
+" If forgot to edit a file with sudo
+command! W w !sudo tee % > /dev/null
+
 "No more accidently hitting <F1>
 map <F1> <Nop>
