@@ -12,6 +12,7 @@
   addre = !git remove-deleted && git add-untracked
   purge = clean -f
   rollback = reset --soft HEAD^
+  root = !pwd
   slog = log --pretty=oneline --abbrev-commit
   sin = !git fetch -q && git slog ..origin/master
   sout = !git fetch -q && git slog origin/master..
