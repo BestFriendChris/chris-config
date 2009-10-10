@@ -110,7 +110,7 @@ nmap [[ [{
 nmap ]] ]}
 
 let Tlist_Close_On_Select=1
-nmap <M-/> :NERDTreeToggle<CR>
+nmap <M-?> :NERDTreeToggle<CR>
 
 filetype plugin on
 
