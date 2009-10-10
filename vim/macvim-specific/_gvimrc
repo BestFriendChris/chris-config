@@ -1,0 +1,5 @@
+set co=97
+set lines=28
+
+macm Window.Select\ Next\ Tab	key=<D-M-Right>
+macm Window.Select\ Previous\ Tab  key=<D-M-Left>
