@@ -103,7 +103,7 @@ vmap // y/<C-R>"<CR>
 map <Up> gk
 map <Down> gj
 
-map gf <C-W><C-F><C-J>
+map gf <C-W><C-F><C-K>
 map <C-Q> @q
 
 nmap [[ [{
