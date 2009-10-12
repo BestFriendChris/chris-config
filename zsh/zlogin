@@ -1,0 +1,27 @@
+# vim mode
+bindkey -v
+
+setopt correct
+setopt extended_glob
+setopt interactive_comments
+
+# Pipe and Redirection settings
+setopt noclobber
+setopt multios
+
+# History settings
+setopt hist_allow_clobber
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_no_store
+setopt inc_append_history
+setopt share_history
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=$ZDOTDIR/history
+
+# Other imports
+source-default aliases
+source-default named-dirs
+

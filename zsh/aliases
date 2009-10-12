@@ -1,0 +1,24 @@
+alias ls="ls -FG"
+alias la="ls -a"
+alias ll="ls -lh"
+alias lla="ll -a"
+
+alias tree="tree -FC"
+alias tr="tree"
+alias tra="tree -a"
+alias trl="tree -h"
+
+alias df="df -h"
+alias du="du -sh"
+alias dirs='dirs -v'
+
+alias cdh='cd "$(hg root)"'
+alias cdg='cd "$(git root)"'
+
+alias vdiff='gvim -c "set ft=diff" -'
+
+# Extra mercurial-queues commands
+alias mq='hg -R "$(hg root)/.hg/patches"'
+alias mq-edit='gvim "$(hg root)/.hg/patches/series"'
+
+# vim:ft=zsh

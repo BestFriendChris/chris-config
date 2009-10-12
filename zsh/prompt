@@ -1,0 +1,21 @@
+setopt prompt_subst
+
+# define colors
+autoload colors zsh/terminfo
+if [[ "$terminfo[colors]" -ge 8 ]]; then
+    colors
+fi
+for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+    eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+    eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
+done
+PR_NO_COLOUR="%{$terminfo[sgr0]%}"
+
+# define the prompt
+PROMPT='\
+$PR_LIGHT_CYAN%(!.%S%n%s.%n)@%m$PR_GREEN:$PR_YELLOW%~
+%(?..$PR_RED(%?%))$PR_LIGHT_CYAN%#$PR_NO_COLOUR '
+
+PS2='$PR_BLUE%_$PR_WHITE>$PR_NO_COLOUR '
+
+# vim:ft=zsh
