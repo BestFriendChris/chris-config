@@ -19,7 +19,7 @@ setopt inc_append_history
 setopt share_history
 HISTSIZE=1000
 SAVEHIST=1000
-HISTFILE=$ZDOTDIR/history
+HISTFILE=$ZDOTDIR/.history
 
 # Other imports
 source-default aliases
