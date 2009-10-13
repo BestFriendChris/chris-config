@@ -16,6 +16,8 @@ function! DiffFoldText()
     let type = "---D"
   elseif match(statusLine, "^rename from") > -1
     let type = "--R-"
+  elseif match(statusLine, "^copy from") > -1
+    let type = "--C-"
   else
     let type = "-M--"
   endif
