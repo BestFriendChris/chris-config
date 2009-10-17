@@ -1,0 +1,8 @@
+typeset -U path
+
+fpath=($ZDOTDIR/funs $fpath)
+
+autoload namedir
+
+# Other imports
+source-default prompt
