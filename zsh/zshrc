@@ -14,9 +14,9 @@ typeset -ag periodic_functions
 typeset -ag precmd_functions
 typeset -ag preexec_functions
 
-# namedir
-function _precmd_namedir_refresh { namedir refresh }
-precmd_functions+=_precmd_namedir_refresh
+# znamedir
+function _precmd_znamedir_refresh { znamedir refresh }
+precmd_functions+=_precmd_znamedir_refresh
 
 # Pipe and Redirection settings
 setopt noclobber
