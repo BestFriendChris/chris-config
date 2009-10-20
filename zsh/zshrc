@@ -9,6 +9,10 @@ setopt interactive_comments
 setopt noclobber
 setopt multios
 
+# Completion
+autoload -U compinit
+compinit
+
 # History settings
 setopt hist_allow_clobber
 setopt hist_ignore_dups
