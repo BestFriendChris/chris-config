@@ -1,7 +1,0 @@
-function local_namedir { eval "$1=$2"; : ~$1 }
-
-local_namedir zhome $ZDOTDIR
-
-unfunction local_namedir
-
-# vim:ft=zsh

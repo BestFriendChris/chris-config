@@ -40,5 +40,3 @@ HISTFILE=$ZDOTDIR/.history
 
 # Other imports
 source-default aliases
-source-default named-dirs
-
