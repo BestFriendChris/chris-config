@@ -2,7 +2,7 @@ typeset -U path
 
 fpath=($ZDOTDIR/funs $fpath)
 
-autoload namedir
+autoload ${fpath[1]}/[^-]*(:t)
 
 # Other imports
 source-default prompt
