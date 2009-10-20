@@ -1,24 +1,18 @@
 #!/bin/zsh
 
 : ${NAMEDIR_FILE:=$ZDOTDIR/.znamedirs}
+
 local -HA _namedir_mappings
-
-local -Ha _namedir_private_funs
-
-local -H _opt _name
-
-_name=$0
+local -H _name=$0
 
 function _namedir_usage {
-  echo "Usage: $_name [-v] (-h|-l|-a name [dir]|-d name|-r)"
-  echo "  -v            -- verbose: list current bindings after the action"
-  echo "  -h            -- this usage doc"
-  echo "  -l            -- list current bindings"
-  echo "  -a name [dir] -- add a new binding to directory (default is \$PWD)"
-  echo "  -d name       -- delete an existing binding"
-  echo "  -r            -- refresh the bindings from disk"
+  echo "Usage of $_name:"
+  echo "       help               -- this usage doc"
+  echo "       list               -- list current bindings"
+  echo "  [-v] refresh            -- refresh the bindings from disk"
+  echo "  [-v] [-d dir] add name  -- add a new binding to a directory (default is \$PWD)"
+  echo "  [-v] delete name        -- delete an existing binding"
 }
-_namedir_private_funs+=_namedir_usage
 
 function _namedir_list {
   if [[ -r $NAMEDIR_FILE ]]; then
@@ -28,29 +22,18 @@ function _namedir_list {
     echo "No current namedir bindings"
   fi
 }
-_namedir_private_funs+=_namedir_list
 
 function _namedir_read {
   if [[ -f $NAMEDIR_FILE ]]; then
     _namedir_mappings=(`cat $NAMEDIR_FILE`)
-    if [[ -z "$_namedir_mappings" ]]; then
+    if [[ -z $_namedir_mappings ]]; then
       rm $NAMEDIR_FILE
     fi
   else
     # Clean out the namedir mappings
-    typeset -A _namedir_mappings
+    _namedir_mappings=()
   fi
 }
-_namedir_private_funs+=_namedir_read
-
-function _namedir_write {
-  for key in ${(k)_namedir_mappings}; do
-    print "$key $_namedir_mappings[$key]"
-  done >| $NAMEDIR_FILE
-
-  _namedir_refresh
-}
-_namedir_private_funs+=_namedir_write
 
 function _namedir_refresh {
   _namedir_read
@@ -61,97 +44,69 @@ function _namedir_refresh {
     : ~$name
   done
 }
-_namedir_private_funs+=_namedir_refresh
+
+function _namedir_write {
+  for key in ${(k)_namedir_mappings}; do
+    print "$key $_namedir_mappings[$key]"
+  done >| $NAMEDIR_FILE
+
+  _namedir_refresh
+}
 
 function _namedir_add {
-  local -H _dir
-  if [[ $ARGC -eq 2 ]]; then
-    _dir=$(cd $2; echo $PWD)
-  else
-    _dir=$PWD
-  fi
-
   _namedir_read
-
-  _namedir_mappings[$1]="\"$_dir\""
-
+  _namedir_mappings[$1]="\"$2\""
   _namedir_write
 }
-_namedir_private_funs+=_namedir_add
 
 function _namedir_remove {
   _namedir_read
-
   unset "_namedir_mappings[$1]"
-
   _namedir_write
 
   unset $1
 }
-_namedir_private_funs+=_namedir_remove
 
-local -H _verbose=0 _action _namedir_name
+local -H _verbose _dir
+zparseopts -E -D -a _verbose v -verbose
+zparseopts -E -D -a _dir d: -dir:
 
-while getopts 'vhla:d:r' _opt; do
-  case $_opt in
-    (v)
-      _verbose=1
-      ;;
-    (h)
-      _action=help
-      ;;
-    (l)
-      _action=list
-      ;;
-    (a)
-      if [[ -n $_action ]]; then; _namedir_usage; return 1; fi
-      _action=add
-      _namedir_name=$OPTARG
-      ;;
-    (d)
-      if [[ -n $_action ]]; then; _namedir_usage; return 1; fi
-      _action=delete
-      _namedir_name=$OPTARG
-      ;;
-    (r)
-      if [[ -n $_action ]]; then; _namedir_usage; return 1; fi
-      _action=refresh
-      ;;
-  esac
-done
-shift $(( OPTIND - 1 ))
-
-local _return_code=0
-case $_action in
-  (help)
-    _namedir_usage
-    _verbose=0
-    ;;
+case $1 in
   (list)
-    _verbose=1
+    (( $# == 1 )) || ( _namedir_usage; return 1 )
+    _namedir_list
+    return 0
     ;;
   (add)
-    local -H _dir
-    [[ -z "$argv" ]] || _dir=$argv[1]
-    _namedir_add $_namedir_name $_dir
+    (( $# == 2 )) || ( _namedir_usage; return 1 )
+    if [[ -n $_dir && ! -d $_dir[2] ]]; then
+      echo "Directory '$_dir[2]' not found"; return 1
+    fi
+    local -H _dir_name
+    _dir_name=$(
+      [[ -n $_dir ]] && cd $_dir[2]
+      echo $PWD
+    )
+    _namedir_add $2 $_dir_name
     ;;
   (delete)
-    _namedir_remove $_namedir_name
+    (( $# == 2 )) || ( _namedir_usage; return 1 )
+    _namedir_remove $2
     ;;
   (refresh)
+    (( $# == 1 )) || ( _namedir_usage; return 1 )
     _namedir_refresh
     ;;
+  (help)
+    (( $# == 1 )) || ( _namedir_usage; return 1 )
+    _namedir_usage; return 0
+    ;;
   (*)
-    _namedir_usage
-    _verbose=0
-    _return_code=1
+    echo "Unknown args: $*"
+    _namedir_usage; return 1
     ;;
 esac
 
-(( $_verbose > 0 )) && _namedir_list
+[[ -n $_verbose ]] && _namedir_list
 
-for f in $_namedir_private_funs; do
-  unfunction $f
-done
-
-return $_return_code
+return 0

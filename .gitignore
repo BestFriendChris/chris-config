@@ -2,3 +2,4 @@ vim/_vim/swp/*
 zsh/.history
 zsh/site-local/*
 zsh/.zcompdump
+zsh/.znamedirs
