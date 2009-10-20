@@ -8,6 +8,16 @@ setopt pushd_ignore_dups
 setopt numeric_glob_sort
 setopt no_list_beep
 
+# Special Functions
+typeset -ag chpwd_functions
+typeset -ag periodic_functions
+typeset -ag precmd_functions
+typeset -ag preexec_functions
+
+# namedir
+function _precmd_namedir_refresh { namedir -r }
+precmd_functions+=_precmd_namedir_refresh
+
 # Pipe and Redirection settings
 setopt noclobber
 setopt multios

@@ -1,2 +1,157 @@
-eval "$1=$PWD"
-: ~$1
+#!/bin/zsh
+
+: ${NAMEDIR_FILE:=$ZDOTDIR/.znamedirs}
+local -HA _namedir_mappings
+
+local -Ha _namedir_private_funs
+
+local -H _opt _name
+
+_name=$0
+
+function _namedir_usage {
+  echo "Usage: $_name [-v] (-h|-l|-a name [dir]|-d name|-r)"
+  echo "  -v            -- verbose: list current bindings after the action"
+  echo "  -h            -- this usage doc"
+  echo "  -l            -- list current bindings"
+  echo "  -a name [dir] -- add a new binding to directory (default is \$PWD)"
+  echo "  -d name       -- delete an existing binding"
+  echo "  -r            -- refresh the bindings from disk"
+}
+_namedir_private_funs+=_namedir_usage
+
+function _namedir_list {
+  if [[ -r $NAMEDIR_FILE ]]; then
+    echo "Current namedir bindings:"
+    cat $NAMEDIR_FILE | sed "s/^/    /"
+  else
+    echo "No current namedir bindings"
+  fi
+}
+_namedir_private_funs+=_namedir_list
+
+function _namedir_read {
+  if [[ -f $NAMEDIR_FILE ]]; then
+    _namedir_mappings=(`cat $NAMEDIR_FILE`)
+    if [[ -z "$_namedir_mappings" ]]; then
+      rm $NAMEDIR_FILE
+    fi
+  else
+    # Clean out the namedir mappings
+    typeset -A _namedir_mappings
+  fi
+}
+_namedir_private_funs+=_namedir_read
+
+function _namedir_write {
+  for key in ${(k)_namedir_mappings}; do
+    print "$key $_namedir_mappings[$key]"
+  done >| $NAMEDIR_FILE
+
+  _namedir_refresh
+}
+_namedir_private_funs+=_namedir_write
+
+function _namedir_refresh {
+  _namedir_read
+
+  for name in ${(k)_namedir_mappings}; do
+    local -H dir=$_namedir_mappings[$name]
+    eval "$name=$dir"
+    : ~$name
+  done
+}
+_namedir_private_funs+=_namedir_refresh
+
+function _namedir_add {
+  local -H _dir
+  if [[ $ARGC -eq 2 ]]; then
+    _dir=$(cd $2; echo $PWD)
+  else
+    _dir=$PWD
+  fi
+
+  _namedir_read
+
+  _namedir_mappings[$1]="\"$_dir\""
+
+  _namedir_write
+}
+_namedir_private_funs+=_namedir_add
+
+function _namedir_remove {
+  _namedir_read
+
+  unset "_namedir_mappings[$1]"
+
+  _namedir_write
+
+  unset $1
+}
+_namedir_private_funs+=_namedir_remove
+
+local -H _verbose=0 _action _namedir_name
+
+while getopts 'vhla:d:r' _opt; do
+  case $_opt in
+    (v)
+      _verbose=1
+      ;;
+    (h)
+      _action=help
+      ;;
+    (l)
+      _action=list
+      ;;
+    (a)
+      if [[ -n $_action ]]; then; _namedir_usage; return 1; fi
+      _action=add
+      _namedir_name=$OPTARG
+      ;;
+    (d)
+      if [[ -n $_action ]]; then; _namedir_usage; return 1; fi
+      _action=delete
+      _namedir_name=$OPTARG
+      ;;
+    (r)
+      if [[ -n $_action ]]; then; _namedir_usage; return 1; fi
+      _action=refresh
+      ;;
+  esac
+done
+shift $(( OPTIND - 1 ))
+
+local _return_code=0
+case $_action in
+  (help)
+    _namedir_usage
+    _verbose=0
+    ;;
+  (list)
+    _verbose=1
+    ;;
+  (add)
+    local -H _dir
+    [[ -z "$argv" ]] || _dir=$argv[1]
+    _namedir_add $_namedir_name $_dir
+    ;;
+  (delete)
+    _namedir_remove $_namedir_name
+    ;;
+  (refresh)
+    _namedir_refresh
+    ;;
+  (*)
+    _namedir_usage
+    _verbose=0
+    _return_code=1
+    ;;
+esac
+
+(( $_verbose > 0 )) && _namedir_list
+
+for f in $_namedir_private_funs; do
+  unfunction $f
+done
+
+return $_return_code
