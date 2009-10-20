@@ -4,6 +4,9 @@ bindkey -v
 setopt correct
 setopt extended_glob
 setopt interactive_comments
+setopt pushd_ignore_dups
+setopt numeric_glob_sort
+setopt no_list_beep
 
 # Pipe and Redirection settings
 setopt noclobber
