@@ -1,3 +1,3 @@
-source $ZDOTDIR/loading-funs
+source $ZDOTDIR/source
 
 source-default zshenv
