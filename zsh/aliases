@@ -16,6 +16,7 @@ alias cdh='cd "$(hg root)"'
 alias cdg='cd "$(git root)"'
 
 alias vdiff='gvim -c "set ft=diff" -'
+function vman { gvim -c "Man $1" }
 
 # Extra mercurial-queues commands
 alias mq='hg -R "$(hg root)/.hg/patches"'
