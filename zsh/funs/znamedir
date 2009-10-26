@@ -1,8 +1,8 @@
 #!/bin/zsh
 
-: ${NAMEDIR_FILE:=$ZDOTDIR/.znamedirs}
+NAMEDIR_FILE=${NAMEDIR_FILE:-$ZDOTDIR/.znamedirs}
 
-local -HA _namedir_mappings
+typeset -gA _namedir_mappings
 local -H _name=$0
 
 function _namedir_usage {
@@ -24,19 +24,31 @@ function _namedir_list {
 }
 
 function _namedir_read {
+  # Clean out the namedir mappings
+  _namedir_mappings=()
   if [[ -f $NAMEDIR_FILE ]]; then
-    _namedir_mappings=(`cat $NAMEDIR_FILE`)
+    local -H IFS='='
+    while read key val; do
+      _namedir_mappings[$key]=$val
+    done < $NAMEDIR_FILE
+
     if [[ -z $_namedir_mappings ]]; then
       rm $NAMEDIR_FILE
     fi
-  else
-    # Clean out the namedir mappings
-    _namedir_mappings=()
   fi
 }
 
 function _namedir_refresh {
+  local -HA _namedir_original_mappings
+  _namedir_original_mappings=( ${(kv)_namedir_mappings} )
+
   _namedir_read
+
+  for name in ${(k)_namedir_original_mappings}; do
+    if [[ -z $_namedir_mappings[$name] ]]; then
+      unset $name
+    fi
+  done
 
   for name in ${(k)_namedir_mappings}; do
     local -H dir=$_namedir_mappings[$name]
@@ -47,7 +59,7 @@ function _namedir_refresh {
 
 function _namedir_write {
   for key in ${(k)_namedir_mappings}; do
-    print "$key $_namedir_mappings[$key]"
+    print "$key=$_namedir_mappings[$key]"
   done >| $NAMEDIR_FILE
 
   _namedir_refresh
