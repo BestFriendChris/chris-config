@@ -7,17 +7,20 @@ local -H _name=$0
 
 function _namedir_usage {
   echo "Usage of $_name:"
-  echo "       help               -- this usage doc"
-  echo "       list               -- list current bindings"
-  echo "  [-v] refresh            -- refresh the bindings from disk"
-  echo "  [-v] [-d dir] add name  -- add a new binding to a directory (default is \$PWD)"
-  echo "  [-v] delete name        -- delete an existing binding"
+  echo "       help           -- this usage doc"
+  echo "       list [name]    -- list current bindings [or limit to 'name']"
+  echo "  [-v] refresh        -- refresh the bindings from disk"
+  echo "  [-v] add name [dir] -- add a new binding to a directory (default is \$PWD)"
+  echo "  [-v] delete name    -- delete an existing binding"
 }
 
 function _namedir_list {
   if [[ -r $NAMEDIR_FILE ]]; then
     echo "Current namedir bindings:"
-    cat $NAMEDIR_FILE | sed "s/^/    /"
+
+    local -H name_grep_pattern
+    [[ -n $1 ]] && name_grep_pattern="^$1" || name_grep_pattern='.*'
+    cat $NAMEDIR_FILE | grep $name_grep_pattern | sed "s/^/    /"
   else
     echo "No current namedir bindings"
   fi
@@ -81,22 +84,21 @@ function _namedir_remove {
 
 local -H _verbose _dir
 zparseopts -E -D -a _verbose v -verbose
-zparseopts -E -D -a _dir d: -dir:
 
 case $1 in
   (list)
-    (( $# == 1 )) || ( _namedir_usage; return 1 )
-    _namedir_list
+    (( $# == 1 || $# == 2 )) || ( _namedir_usage; return 1 )
+    _namedir_list $2
     return 0
     ;;
   (add)
-    (( $# == 2 )) || ( _namedir_usage; return 1 )
-    if [[ -n $_dir && ! -d $_dir[2] ]]; then
-      echo "Directory '$_dir[2]' not found"; return 1
+    (( $# == 2 || $# == 3 )) || ( _namedir_usage; return 1 )
+    if [[ -n $3 && ! -d $3 ]]; then
+      echo "Directory '$3' not found"; return 1
     fi
     local -H _dir_name
     _dir_name=$(
-      [[ -n $_dir ]] && cd $_dir[2]
+      [[ -n $3 ]] && cd $3
       echo $PWD
     )
     _namedir_add $2 $_dir_name
