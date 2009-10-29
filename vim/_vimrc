@@ -92,6 +92,7 @@ nmap <Leader>p "+gP
 
 " Select some text and search with it
 vmap // y/<C-R>"<CR>
+vmap ?? y?<C-R>"<CR>
 
 " Wrapped line movement
 map <Up> gk
