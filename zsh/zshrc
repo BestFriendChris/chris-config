@@ -1,7 +1,6 @@
 # vim mode
 bindkey -v
 
-setopt correct
 setopt extended_glob
 setopt interactive_comments
 setopt pushd_ignore_dups
