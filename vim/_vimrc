@@ -117,6 +117,7 @@ let html_use_css = 1
 let g:lisp_rainbow = 1
 let g:clj_paren_rainbow = 1
 let g:clj_highlight_builtins = 1
+let g:xml_syntax_folding=1
 let NERDTreeQuitOnOpen = 1
 
 colorscheme desert
