@@ -8,8 +8,21 @@ fi
 for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
     eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
     eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
+    eval PR_BG_$color='%{$bg[${(L)color}]%}'
 done
 PR_NO_COLOUR="%{$terminfo[sgr0]%}"
+
+RPROMPT=
+function __prompt_update_from_keymap {
+  case $1 in
+    vicmd)
+      RPROMPT='$PR_BG_RED${PR_YELLOW}VI-CMD MODE$PR_NO_COLOUR'
+      ;;
+    *)
+      RPROMPT=
+      ;;
+  esac
+}
 
 # define the prompt
 PROMPT='\
