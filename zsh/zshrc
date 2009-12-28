@@ -17,6 +17,10 @@ typeset -ag preexec_functions
 function _precmd_znamedir_refresh { znamedir refresh }
 precmd_functions+=_precmd_znamedir_refresh
 
+# keymap reset
+function _precmd_prompt_update { __prompt_update_from_keymap main }
+precmd_functions+=_precmd_prompt_update
+
 # Pipe and Redirection settings
 setopt noclobber
 setopt multios
