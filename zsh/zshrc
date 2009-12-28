@@ -6,6 +6,7 @@ setopt interactive_comments
 setopt pushd_ignore_dups
 setopt numeric_glob_sort
 setopt no_list_beep
+setopt transient_rprompt
 
 # Special Functions
 typeset -ag chpwd_functions
