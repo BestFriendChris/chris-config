@@ -3,6 +3,3 @@ typeset -U path
 fpath=($ZDOTDIR/funs $fpath)
 
 autoload ${fpath[1]}/[^_]*(:t)
-
-# Other imports
-source-default prompt
