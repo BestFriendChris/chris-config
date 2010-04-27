@@ -26,10 +26,6 @@ precmd_functions+=_precmd_prompt_update
 setopt noclobber
 setopt multios
 
-# Completion
-autoload -U compinit
-compinit
-
 # History settings
 setopt hist_allow_clobber
 setopt hist_ignore_dups
@@ -45,3 +41,4 @@ HISTFILE=$ZDOTDIR/.history
 # Other imports
 source-default aliases
 source-default bindings
+source-default completions
