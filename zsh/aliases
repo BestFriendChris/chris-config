@@ -12,10 +12,15 @@ alias df="df -h"
 alias du="du -sh"
 alias dirs='dirs -v'
 
+alias grep="grep -v grep|grep"
+alias g="grep --color"
+alias p="ps aux|g "
+
 alias cdh='cd "$(hg root)"'
 alias cdg='cd "$(git root)"'
 
 alias vdiff='gvim -c "set ft=diff" -'
+alias vhg='gvim -c "set ft=hg-log" -'
 function vman { gvim -c "Man $1" }
 alias run-help=vman
 
