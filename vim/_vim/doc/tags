@@ -64,6 +64,12 @@
 :NERDTreeToggle	NERD_tree.txt	/*:NERDTreeToggle*
 :PatchReview	patchreview.txt	/*:PatchReview*
 :PatchReviewCleanup	patchreview.txt	/*:PatchReviewCleanup*
+:SynMark	synmark.txt	/*:SynMark*
+:SynMarkDef	synmark.txt	/*:SynMarkDef*
+:SynMarkEnd	synmark.txt	/*:SynMarkEnd*
+:SynMarkHighlight	synmark.txt	/*:SynMarkHighlight*
+:SynMarkLink	synmark.txt	/*:SynMarkLink*
+:SynMarkStart	synmark.txt	/*:SynMarkStart*
 :TlistAddFiles	taglist.txt	/*:TlistAddFiles*
 :TlistAddFilesRecursive	taglist.txt	/*:TlistAddFilesRecursive*
 :TlistClose	taglist.txt	/*:TlistClose*
@@ -231,6 +237,12 @@ patchreview-intro	patchreview.txt	/*patchreview-intro*
 patchreview-options	patchreview.txt	/*patchreview-options*
 patchreview-usage	patchreview.txt	/*patchreview-usage*
 patchreview.txt	patchreview.txt	/*patchreview.txt*
+synmark	synmark.txt	/*synmark*
+synmark-bang	synmark.txt	/*synmark-bang*
+synmark-commands	synmark.txt	/*synmark-commands*
+synmark-introduction	synmark.txt	/*synmark-introduction*
+synmark.txt	synmark.txt	/*synmark.txt*
+synmark.vim	synmark.txt	/*synmark.vim*
 taglist-commands	taglist.txt	/*taglist-commands*
 taglist-debug	taglist.txt	/*taglist-debug*
 taglist-extend	taglist.txt	/*taglist-extend*
