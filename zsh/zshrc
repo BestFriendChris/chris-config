@@ -38,6 +38,11 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=$ZDOTDIR/.history
 
+# zmv feature
+autoload -U zmv
+alias zmv="noglob zmv"
+alias zcp="zmv -C"
+
 # Other imports
 source-default aliases
 source-default bindings
