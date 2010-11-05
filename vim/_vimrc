@@ -138,3 +138,4 @@ command! W w !sudo tee % > /dev/null
 
 "No more accidently hitting <F1>
 map <F1> <Nop>
+map <D-F1> <Nop>
