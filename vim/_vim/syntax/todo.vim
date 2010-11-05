@@ -1,6 +1,5 @@
-nmap <buffer> o o[_] 
-imap <buffer> <Return> <Esc>o
-nmap <buffer> <C-x> :s/\[_\]/[X]/e<CR>:noh<CR>
+nmap <buffer> o o[ ] 
+imap <buffer> <Return> <Return>[ ] 
 
 " Indentation
 vmap <buffer> <Tab> >
@@ -10,6 +9,11 @@ nmap <buffer> <S-Tab> mp<<`phh
 imap <buffer> <Tab> <Esc><Tab>a
 imap <buffer> <S-Tab> <Esc><S-Tab>a
 
-" Converting between "-" and "[_]"
-nmap <buffer> - :s/\[.\]/-/e<CR>:noh<CR>
-nmap <buffer> = :s/^\(\s*\)-/\1[_]/e<CR>:noh<CR>
+" Converting between "[ ]" and "-"
+nmap <buffer> - :s/^\(\s*\)\[.\]/\1[∆]/e<CR>:s/^\(\s*\)-/\1[ ]/e<CR>:s/^\(\s*\)\[∆\]/\1-/e<CR>:noh<CR>
+
+" Converting between "[ ]" and "[-]"
+nmap <buffer> = :s/^\(\s*\)\[-\]/\1[∆]/e<CR>:s/^\(\s*\)\[[^∆]\]/\1[-]/e<CR>:s/^\(\s*\)\[∆\]/\1[ ]/e<CR>:noh<CR>
+
+" Converting between "[ ]" and "[√]"
+nmap <buffer> <C-x> :s/^\(\s*\)\[ \]/\1[∆]/e<CR>:s/^\(\s*\)\[[^∆]\]/\1[ ]/e<CR>:s/^\(\s*\)\[∆\]/\1[√]/e<CR>:noh<CR>
