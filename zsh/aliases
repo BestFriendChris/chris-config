@@ -9,6 +9,7 @@ alias tra="tree -a"
 alias trl="tree -h"
 
 alias df="df -h"
+function dus { du -s $* | sort -n }
 alias du="du -sh"
 alias dirs='dirs -v'
 
