@@ -17,6 +17,9 @@ alias grep="grep -v grep|grep"
 alias g="grep --color"
 alias p="ps aux|g "
 
+alias rsync="rsync -ahOP --exclude=.DS_Store"
+alias dry-rsync="rsync --dry-run -ahOP --exclude=.DS_Store"
+
 alias cdh='cd "$(hg root)"'
 alias cdg='cd "$(git root)"'
 
