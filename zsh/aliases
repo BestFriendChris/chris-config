@@ -3,6 +3,7 @@ alias la="ls -a"
 alias ll="ls -lh"
 alias lla="ll -a"
 
+alias treep="tree -Fn"
 alias tree="tree -FC"
 alias tr="tree"
 alias tra="tree -a"
@@ -18,7 +19,7 @@ alias g="grep --color"
 alias p="ps aux|g "
 
 alias rsync="rsync -ahOP --exclude=.DS_Store"
-alias dry-rsync="rsync --dry-run -ahOP --exclude=.DS_Store"
+alias dry-rsync="rsync --dry-run"
 
 alias cdh='cd "$(hg root)"'
 alias cdg='cd "$(git root)"'
