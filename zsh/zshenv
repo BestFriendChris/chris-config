@@ -1,6 +1,3 @@
-# Add MacPorts installation location to path
-path=($path /opt/local/bin /opt/local/sbin)
-
 typeset -U path
 
 fpath=($ZDOTDIR/funs $fpath)
