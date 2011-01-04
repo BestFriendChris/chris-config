@@ -31,4 +31,14 @@ $PR_LIGHT_CYAN%(!.%S%n%s.%n)@%m$PR_GREEN:$PR_YELLOW%~
 
 PS2='$PR_BLUE%_$PR_WHITE>$PR_NO_COLOUR '
 
+# keymap reset
+function _precmd_prompt_update { __prompt_update_from_keymap main }
+precmd_functions+=_precmd_prompt_update
+
+function zle-keymap-select {
+  __prompt_update_from_keymap $KEYMAP
+  zle reset-prompt
+}
+zle -N zle-keymap-select
+
 # vim:ft=zsh
