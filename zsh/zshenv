@@ -1,5 +1,5 @@
 typeset -U path
 
-fpath=($ZDOTDIR/funs $fpath)
+fpath=($ZDOTDIR/funs $ZDOTDIR/site-local/funs $fpath)
 
 autoload ${fpath[1]}/[^_]*(:t)
