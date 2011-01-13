@@ -22,3 +22,6 @@
 [submodule "vim/_vim/bundle/snipmate"]
 	path = vim/_vim/bundle/snipmate
 	url = https://github.com/msanders/snipmate.vim.git
+[submodule "vim/_vim/bundle/nerdcommenter"]
+	path = vim/_vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
