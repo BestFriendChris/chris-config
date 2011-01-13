@@ -7,3 +7,9 @@
 [submodule "vim/_vim/bundle/patchreview"]
 	path = vim/_vim/bundle/patchreview
 	url = https://github.com/junkblocker/patchreview-vim.git
+[submodule "vim/_vim/bundle/vim-git"]
+	path = vim/_vim/bundle/vim-git
+	url = https://github.com/tpope/vim-git.git
+[submodule "vim/_vim/bundle/vim-fugitive"]
+	path = vim/_vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
