@@ -1,0 +1,3 @@
+[submodule "vim/_vim/bundle/ack"]
+	path = vim/_vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git

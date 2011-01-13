@@ -43,8 +43,6 @@
 'Tlist_WinHeight'	taglist.txt	/*'Tlist_WinHeight'*
 'Tlist_WinWidth'	taglist.txt	/*'Tlist_WinWidth'*
 'loaded_nerd_tree'	NERD_tree.txt	/*'loaded_nerd_tree'*
-:Ack	ack.txt	/*:Ack*
-:AckAdd	ack.txt	/*:AckAdd*
 :CVSEdit	vcscommand.txt	/*:CVSEdit*
 :CVSEditors	vcscommand.txt	/*:CVSEditors*
 :CVSUnedit	vcscommand.txt	/*:CVSUnedit*
@@ -54,8 +52,6 @@
 :CVSWatchOn	vcscommand.txt	/*:CVSWatchOn*
 :CVSWatchRemove	vcscommand.txt	/*:CVSWatchRemove*
 :CVSWatchers	vcscommand.txt	/*:CVSWatchers*
-:LAck	ack.txt	/*:LAck*
-:LAckAdd	ack.txt	/*:LAckAdd*
 :MatchDebug	matchit.txt	/*:MatchDebug*
 :NERDTree	NERD_tree.txt	/*:NERDTree*
 :NERDTreeClose	NERD_tree.txt	/*:NERDTreeClose*
@@ -179,9 +175,6 @@ VCSCommandSVNExec	vcscommand.txt	/*VCSCommandSVNExec*
 VCSCommandSplit	vcscommand.txt	/*VCSCommandSplit*
 [%	matchit.txt	/*[%*
 ]%	matchit.txt	/*]%*
-ack	ack.txt	/*ack*
-ack-author	ack.txt	/*ack-author*
-ack.txt	ack.txt	/*ack.txt*
 b:VCSCommandCommand	vcscommand.txt	/*b:VCSCommandCommand*
 b:VCSCommandOriginalBuffer	vcscommand.txt	/*b:VCSCommandOriginalBuffer*
 b:VCSCommandSourceFile	vcscommand.txt	/*b:VCSCommandSourceFile*
