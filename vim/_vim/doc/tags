@@ -33,8 +33,6 @@
 :CVSWatchRemove	vcscommand.txt	/*:CVSWatchRemove*
 :CVSWatchers	vcscommand.txt	/*:CVSWatchers*
 :MatchDebug	matchit.txt	/*:MatchDebug*
-:PatchReview	patchreview.txt	/*:PatchReview*
-:PatchReviewCleanup	patchreview.txt	/*:PatchReviewCleanup*
 :SynMark	synmark.txt	/*:SynMark*
 :SynMarkDef	synmark.txt	/*:SynMarkDef*
 :SynMarkEnd	synmark.txt	/*:SynMarkEnd*
@@ -148,12 +146,6 @@ matchit.vim	matchit.txt	/*matchit.vim*
 o_[%	matchit.txt	/*o_[%*
 o_]%	matchit.txt	/*o_]%*
 o_g%	matchit.txt	/*o_g%*
-patchreview	patchreview.txt	/*patchreview*
-patchreview-contents	patchreview.txt	/*patchreview-contents*
-patchreview-intro	patchreview.txt	/*patchreview-intro*
-patchreview-options	patchreview.txt	/*patchreview-options*
-patchreview-usage	patchreview.txt	/*patchreview-usage*
-patchreview.txt	patchreview.txt	/*patchreview.txt*
 synmark	synmark.txt	/*synmark*
 synmark-bang	synmark.txt	/*synmark-bang*
 synmark-commands	synmark.txt	/*synmark-commands*

@@ -4,3 +4,6 @@
 [submodule "vim/_vim/bundle/nerdtree"]
 	path = vim/_vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/_vim/bundle/patchreview"]
+	path = vim/_vim/bundle/patchreview
+	url = https://github.com/junkblocker/patchreview-vim.git
