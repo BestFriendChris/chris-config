@@ -124,6 +124,7 @@ let NERDTreeQuitOnOpen = 1
 
 colorscheme desert
 set nowrap
+set linebreak
 set number
 set visualbell
 
