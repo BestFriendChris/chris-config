@@ -4,6 +4,9 @@ set nocompatible
 
 silent! call pathogen#runtime_append_all_bundles()
 
+silent! helptags $VIMRUNTIME/doc
+silent! call pathogen#helptags()
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
