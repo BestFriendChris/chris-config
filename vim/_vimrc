@@ -117,10 +117,15 @@ filetype plugin on
 
 let html_use_css = 1
 let g:lisp_rainbow = 1
-let g:clj_paren_rainbow = 1
-let g:clj_highlight_builtins = 1
 let g:xml_syntax_folding=1
 let NERDTreeQuitOnOpen = 1
+
+"Vim Clojure stuff
+let vimclojure#HighlightBuiltins = 1
+let vimclojure#ParenRainbow=1
+let vimclojure#WantNailgun=1
+let vimclojure#DynamicHighlighting=1
+let vimclojure#SplitSize=15
 
 " ZenCoding
 let g:user_zen_leader_key = '<c-Space>'
