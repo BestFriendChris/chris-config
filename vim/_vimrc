@@ -122,6 +122,20 @@ let g:clj_highlight_builtins = 1
 let g:xml_syntax_folding=1
 let NERDTreeQuitOnOpen = 1
 
+" ZenCoding
+let g:user_zen_leader_key = '<c-Space>'
+let g:use_zen_complete_tag = 1
+let user_zen_expandabbr_key = '<C-Space><C-Space>'
+let user_zen_prev_key = '<C-Space>p'
+let g:user_zen_settings = {
+      \  'xhtml' : {
+      \    'indentation' : '  '
+      \  },
+      \  'html' : {
+      \    'indentation' : '  '
+      \  },
+      \}
+
 colorscheme desert
 set nowrap
 set linebreak

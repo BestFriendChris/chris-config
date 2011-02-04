@@ -25,3 +25,6 @@
 [submodule "vim/_vim/bundle/nerdcommenter"]
 	path = vim/_vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/_vim/bundle/zencoding-vim"]
+	path = vim/_vim/bundle/zencoding-vim
+	url = https://github.com/mattn/zencoding-vim.git
