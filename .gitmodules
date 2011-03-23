@@ -38,3 +38,7 @@
 	path = vim/_vim/bundle/zencoding-vim
 	url = https://github.com/mattn/zencoding-vim.git
         ignore = untracked
+[submodule "vim/_vim/bundle/vimoutliner"]
+	path = vim/_vim/bundle/vimoutliner
+	url = https://github.com/vimoutliner/vimoutliner.git
+        ignore = untracked
