@@ -42,3 +42,6 @@
 	path = vim/_vim/bundle/vimoutliner
 	url = https://github.com/vimoutliner/vimoutliner.git
         ignore = untracked
+[submodule "vim/_vim/bundle/vim-coffee-script"]
+	path = vim/_vim/bundle/vim-coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
