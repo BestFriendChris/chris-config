@@ -35,6 +35,25 @@ PS2='$PR_BLUE%_$PR_WHITE>$PR_NO_COLOUR '
 function _precmd_prompt_update { __prompt_update_from_keymap main }
 precmd_functions+=_precmd_prompt_update
 
+# xterm title
+function title {
+  if [[ $TERM == "xterm" ]]; then
+    print -Pn "\e]0;$*\a"
+  fi
+}
+
+function _precmd_update_xterm_title {
+  title "%n@%m:%~"
+}
+precmd_functions+=_precmd_update_xterm_title
+
+function _preexec_update_xterm_title {
+  emulate -L zsh
+  local -a cmd; cmd=(${(z)1})
+  title $cmd[1]:t "$cmd[2,-1]"
+}
+preexec_functions+=_preexec_update_xterm_title
+
 function zle-keymap-select {
   __prompt_update_from_keymap $KEYMAP
   zle reset-prompt
