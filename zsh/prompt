@@ -37,7 +37,7 @@ precmd_functions+=_precmd_prompt_update
 
 # xterm title
 function title {
-  if [[ $TERM == "xterm" ]]; then
+  if [[ $TERM == xterm* ]]; then
     print -Pn "\e]0;$*\a"
   fi
 }
