@@ -5,11 +5,12 @@
   co = checkout
   lc = log ORIG_HEAD.. --stat --no-merges
   headless = !sh -c 'git symbolic-ref HEAD refs/heads/$0 && rm .git/index && git clean -fdx'
-  remove-deleted = !git ls-files -d | xargs git rm
-  add-untracked = !git ls-files -o | xargs git add -v
+  remove-deleted = !git ls-files -dz | xargs -0 git rm
+  add-untracked  = !git ls-files -oz | xargs -0 git add -v
+  add-modified   = !git ls-files -mz | xargs -0 git add -v
 
 # hg command parity
-  addre = !git remove-deleted && git add-untracked
+  addre = !git remove-deleted && git add-untracked && git add-modified
   purge = clean -f
   rollback = reset --soft HEAD^
   root = !pwd
