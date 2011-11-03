@@ -48,3 +48,6 @@
 [submodule "vim/_vim/bundle/tabular"]
 	path = vim/_vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/_vim/bundle/gundo"]
+	path = vim/_vim/bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git
