@@ -51,3 +51,6 @@
 [submodule "vim/_vim/bundle/gundo"]
 	path = vim/_vim/bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
+[submodule "vim/_vim/bundle/vim-powerline"]
+	path = vim/_vim/bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
