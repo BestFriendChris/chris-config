@@ -3,3 +3,7 @@ set lines=28
 
 macm Window.Select\ Next\ Tab	key=<D-M-Right>
 macm Window.Select\ Previous\ Tab  key=<D-M-Left>
+
+" Powerline
+let Powerline_symbols="fancy"
+set guifont=Mensch\ for\ Powerline:h12,SimSun:h12

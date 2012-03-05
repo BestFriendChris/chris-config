@@ -164,6 +164,9 @@ command! W w !sudo tee % > /dev/null
 map <F1> <Nop>
 map <D-F1> <Nop>
 
+" Powerline
+set laststatus=2
+
 " Trying these out; we'll see if I like/use it
 imap jj <ESC>
 nmap <silent> <Leader>w :w<CR>
