@@ -7,5 +7,4 @@ macm Window.Select\ Previous\ Tab  key=<D-M-Left>
 set guioptions-=T " Remove the tabbar from gvim
 
 " Powerline
-let Powerline_symbols="fancy"
 set guifont=Mensch\ for\ Powerline:h12,SimSun:h12

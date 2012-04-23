@@ -166,6 +166,7 @@ map <D-F1> <Nop>
 
 " Powerline
 set laststatus=2
+let Powerline_symbols="fancy"
 
 " Trying these out; we'll see if I like/use it
 imap jj <ESC>
