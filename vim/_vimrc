@@ -125,7 +125,7 @@ let NERDTreeQuitOnOpen = 1
 "Vim Clojure stuff
 let vimclojure#HighlightBuiltins = 1
 let vimclojure#ParenRainbow=1
-let vimclojure#WantNailgun=1
+let vimclojure#WantNailgun=0
 let vimclojure#DynamicHighlighting=1
 let vimclojure#SplitSize=15
 
