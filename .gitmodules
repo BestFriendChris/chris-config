@@ -54,3 +54,6 @@
 [submodule "vim/_vim/bundle/screen"]
 	path = vim/_vim/bundle/screen
 	url = https://github.com/ervandew/screen.git
+[submodule "vim/_vim/bundle/vim-powerline"]
+	path = vim/_vim/bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git

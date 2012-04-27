@@ -76,11 +76,13 @@ set scrolloff=2
 
 set ignorecase
 set smartcase
+nmap <silent> <Leader><Space> :noh<CR>
 
 " Don't litter the filesystem with .swp files
 set directory=~/.vim/swp//
 
-nmap <silent> <C-N><C-N> :set invnumber<CR>
+" Rotate between number, relativenumber, and nothing
+nmap <silent> <C-N><C-N> :exec 'set ' &nu+&rnu ? 'rnu!' : 'nu'<CR>
 nmap <silent> <C-W><C-W> :set invwrap<CR>
 nmap <silent> <C-G><C-G> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
 nmap <silent> <C-Z><C-Z> :let &foldcolumn = ( &foldcolumn == 0 ? 5 : 0 )<CR>
@@ -123,7 +125,7 @@ let NERDTreeQuitOnOpen = 1
 "Vim Clojure stuff
 let vimclojure#HighlightBuiltins = 1
 let vimclojure#ParenRainbow=1
-let vimclojure#WantNailgun=1
+let vimclojure#WantNailgun=0
 let vimclojure#DynamicHighlighting=1
 let vimclojure#SplitSize=15
 
@@ -161,3 +163,11 @@ command! W w !sudo tee % > /dev/null
 "No more accidently hitting <F1>
 map <F1> <Nop>
 map <D-F1> <Nop>
+
+" Powerline
+set laststatus=2
+let Powerline_symbols="fancy"
+
+" Trying these out; we'll see if I like/use it
+imap jj <ESC>
+nmap <silent> <Leader>w :w<CR>

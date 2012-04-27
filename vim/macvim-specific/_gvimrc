@@ -3,3 +3,8 @@ set lines=28
 
 macm Window.Select\ Next\ Tab	key=<D-M-Right>
 macm Window.Select\ Previous\ Tab  key=<D-M-Left>
+
+set guioptions-=T " Remove the tabbar from gvim
+
+" Powerline
+set guifont=Mensch\ for\ Powerline:h12,SimSun:h12

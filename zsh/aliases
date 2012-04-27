@@ -5,17 +5,13 @@ alias lla="ll -a"
 
 alias treep="tree -Fn"
 alias tree="tree -FC"
-alias tr="tree"
-alias tra="tree -a"
-alias trl="tree -h"
 
 alias df="df -h"
 function dus { du -s $* | sort -n }
 alias du="du -sh"
 alias dirs='dirs -v'
 
-alias grep="grep -v grep|grep"
-alias g="grep --color"
+alias g="grep -v grep|grep --color"
 alias p="ps aux|g "
 
 alias rsync="rsync -ahOP --exclude=.DS_Store"
