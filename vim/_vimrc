@@ -171,3 +171,5 @@ let Powerline_symbols="fancy"
 " Trying these out; we'll see if I like/use it
 imap jj <ESC>
 nmap <silent> <Leader>w :w<CR>
+
+let g:ScreenImpl='Tmux'
