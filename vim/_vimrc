@@ -173,3 +173,6 @@ imap jj <ESC>
 nmap <silent> <Leader>w :w<CR>
 
 let g:ScreenImpl='Tmux'
+
+let g:CommandTMaxHeight=10
+let g:CommandTMinHeight=10
