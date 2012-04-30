@@ -91,6 +91,7 @@ nmap <silent> <C-G><C-G> :let &background = ( &background == "dark" ? "light" : 
 nmap <silent> <C-Z><C-Z> :let &foldcolumn = ( &foldcolumn == 0 ? 5 : 0 )<CR>
 
 " Change from using stack style editing to normal, equal sized windows and back
+nmap <silent> <Leader>s :let &winheight = ( &winheight == 999 ? 10 : 999)<CR>
 nmap <silent> <C-S> :let &winheight = ( &winheight == 999 ? 10 : 999)<CR><C-W>=
 
 " Open/close folds with space
