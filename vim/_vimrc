@@ -173,3 +173,5 @@ imap jj <ESC>
 nmap <silent> <Leader>w :w<CR>
 
 let g:ScreenImpl='Tmux'
+
+nmap <Leader>s :Sscratch<CR>
