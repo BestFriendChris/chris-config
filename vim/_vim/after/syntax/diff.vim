@@ -41,4 +41,4 @@ hi link diffRemoved		PreProc
 hi Folded	guibg=grey30 guifg=LightBlue
 hi FoldColumn	guibg=grey30 guifg=Red
 nmap <buffer> <Space> za
-nmap Q ZQ
+nmap <buffer> Q ZQ

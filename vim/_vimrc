@@ -15,6 +15,9 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
+set switchbuf=useopen   " Only have one buffer of a file open at a time
+set hidden              " Keep buffers open in the background
+
 " Don't use Ex mode, use Q for quitting when saved
 map Q :q<CR>
 
@@ -176,3 +179,5 @@ let g:ScreenImpl='Tmux'
 
 let g:CommandTMaxHeight=10
 let g:CommandTMinHeight=10
+
+nmap <Leader>s :Sscratch<CR>
