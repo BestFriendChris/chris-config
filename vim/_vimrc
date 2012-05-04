@@ -150,7 +150,7 @@ let g:user_zen_settings = {
 colorscheme desert
 set nowrap
 set linebreak
-set number
+set relativenumber
 set visualbell
 
 " Use man in a new window
