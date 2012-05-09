@@ -17,6 +17,10 @@
   slog = log --pretty=oneline --abbrev-commit
   sin = !git fetch -q && git slog ..origin/master
   sout = !git fetch -q && git slog origin/master..
+
+# Show how far away the branches are from master; smaller is better
+  br-distance-one = "!bash -c 'git rev-list --left-only --pretty=oneline master...$1 | wc -l | sed \"s/$/ - $1/\"' -"
+  br-distance = "!bash -c 'for b in `git branch | sed -e \"s/\\*//\" -e \"s/ master$//\"`; do git br-distance-one $b; done | sort -n'"
 [color]
   ui=true
 [push]
