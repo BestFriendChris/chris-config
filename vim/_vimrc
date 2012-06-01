@@ -176,7 +176,9 @@ map <D-F1> <Nop>
 
 " Powerline
 set laststatus=2
-let Powerline_symbols="fancy"
+set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
+set encoding=utf-8 " Necessary to show unicode glyphs
+let Powerline_stl_path_style="short"
 
 " Trying these out; we'll see if I like/use it
 imap jj <ESC>
