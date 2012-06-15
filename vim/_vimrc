@@ -138,6 +138,7 @@ let vimclojure#ParenRainbow=1
 let vimclojure#WantNailgun=0
 let vimclojure#DynamicHighlighting=1
 let vimclojure#SplitSize=15
+let vimclojure#FuzzyIndent = 1
 
 " ZenCoding
 let g:user_zen_leader_key = '<c-Space>'
