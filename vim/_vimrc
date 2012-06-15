@@ -140,6 +140,9 @@ let vimclojure#DynamicHighlighting=1
 let vimclojure#SplitSize=15
 let vimclojure#FuzzyIndent = 1
 
+let g:paredit_leader = '_'
+let g:paredit_mode=1
+
 " ZenCoding
 let g:user_zen_leader_key = '<c-Space>'
 let g:use_zen_complete_tag = 1
