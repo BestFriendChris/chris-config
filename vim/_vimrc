@@ -165,8 +165,8 @@ set visualbell
 
 " Use man in a new window
 runtime! ftplugin/man.vim
-nmap K <Leader>K
-vmap K "my:Man <C-R>m<CR>
+"nmap K <Leader>K
+"vmap K "my:Man <C-R>m<CR>
 
 " Change directory of the current buffer to be the same as the file
 command! -n=0 Cdl lcd %:p:h
