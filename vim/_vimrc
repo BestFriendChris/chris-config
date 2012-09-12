@@ -157,7 +157,8 @@ let g:user_zen_settings = {
       \  },
       \}
 
-colorscheme desert
+"colorscheme desert
+colorscheme solarized
 set nowrap
 set linebreak
 set relativenumber
