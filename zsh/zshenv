@@ -1,5 +1,5 @@
 typeset -U path
 
-fpath=($ZDOTDIR/funs $ZDOTDIR/site-local/funs $fpath)
+fpath=($ZDOTDIR/funs $ZDOTDIR/site-local/funs /usr/local/share/zsh-completions $fpath)
 
 autoload ${fpath[1]}/[^_]*(:t)
