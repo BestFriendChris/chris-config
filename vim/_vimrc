@@ -210,3 +210,5 @@ map <silent> <D-9> <ESC>9gt
 set guitablabel=%M(%N)\ %t
 
 nnoremap <Leader>m :silent !open -a Marked.app '%:p'<CR>
+
+match ErrorMsg '  *$'
