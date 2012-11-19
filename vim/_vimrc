@@ -188,6 +188,7 @@ let Powerline_stl_path_style="short"
 " Trying these out; we'll see if I like/use it
 imap jj <ESC>
 nmap <silent> <Leader>w :w<CR>
+nmap <silent> <Leader>W :wa<CR>
 
 let g:ScreenImpl='Tmux'
 
