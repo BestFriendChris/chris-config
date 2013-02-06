@@ -159,6 +159,7 @@ let g:user_zen_settings = {
 
 "colorscheme desert
 colorscheme solarized
+"colorscheme vividchalk
 set nowrap
 set linebreak
 set relativenumber
