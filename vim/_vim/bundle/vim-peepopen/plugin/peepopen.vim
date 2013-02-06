@@ -4,6 +4,13 @@
 
 " Install this file as plugin/peepopen.vim.
 
+" If you prefer Command-T, use this snippet in your .gvimrc:
+
+" if has("gui_macvim")
+"   macmenu &File.New\ Tab key=<nop>
+"   map <D-t> <Plug>PeepOpen
+" end
+
 " ============================================================================
 
 " Exit quickly when:
@@ -19,7 +26,7 @@ set cpo&vim
 
 function s:LaunchPeepOpenViaVim()
   let cwd = getcwd()
-  silent exe "!open -a PeepOpen " . shellescape(cwd)
+  silent exe "!open \"peepopen://" . shellescape(cwd) . "?editor=MacVim\""
 endfunction
 
 command! PeepOpen :call <SID>LaunchPeepOpenViaVim()
@@ -28,7 +35,7 @@ noremap <unique> <script> <Plug>PeepOpen <SID>Launch
 noremap <SID>Launch :call <SID>LaunchPeepOpenViaVim()<CR>
 
 if !hasmapto('<Plug>PeepOpen')
-  map <unique> <silent> <Leader>f <Plug>PeepOpen
+  map <unique> <silent> <Leader>p <Plug>PeepOpen
 endif
 
 let &cpo = s:save_cpo
