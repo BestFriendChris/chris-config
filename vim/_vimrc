@@ -214,3 +214,6 @@ set guitablabel=%M(%N)\ %t
 nnoremap <Leader>m :silent !open -a Marked.app '%:p'<CR>
 
 match ErrorMsg '  *$'
+
+cnoremap %% <C-R>=expand('%:h').'/'<CR>
+nmap <Leader><Leader> <C-^>
