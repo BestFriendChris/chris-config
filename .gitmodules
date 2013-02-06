@@ -63,3 +63,12 @@
 [submodule "vim/_vim/bundle/vim-colors-solarized"]
 	path = vim/_vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/_vim/bundle/TailMinusF"]
+	path = vim/_vim/bundle/TailMinusF
+	url = git://github.com/vim-scripts/TailMinusF.git
+[submodule "vim/_vim/bundle/vim-bundler"]
+	path = vim/_vim/bundle/vim-bundler
+	url = git://github.com/tpope/vim-bundler.git
+[submodule "vim/_vim/bundle/vim-rails"]
+	path = vim/_vim/bundle/vim-rails
+	url = git://github.com/tpope/vim-rails.git
