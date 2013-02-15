@@ -9,3 +9,4 @@ set guioptions-=T " Remove the tabbar from gvim
 " Powerline
 set guifont=Mensch\ for\ Powerline:h12,SimSun:h12
 let Powerline_symbols="fancy"
+colorscheme solarized
