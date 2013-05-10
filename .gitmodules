@@ -90,3 +90,6 @@
 [submodule "vim/_vim/bundle/vim-scriptease"]
 	path = vim/_vim/bundle/vim-scriptease
 	url = git://github.com/tpope/vim-scriptease.git
+[submodule "vim/_vim/bundle/vim-ruby-conque"]
+	path = vim/_vim/bundle/vim-ruby-conque
+	url = git://github.com/skwp/vim-ruby-conque.git
