@@ -75,3 +75,6 @@
 [submodule "vim/_vim/bundle/vim-color-vividchalk"]
 	path = vim/_vim/bundle/vim-color-vividchalk
 	url = git://github.com/tpope/vim-vividchalk.git
+[submodule "vim/_vim/bundle/vim-elixir"]
+	path = vim/_vim/bundle/vim-elixir
+	url = https://github.com/elixir-lang/vim-elixir.git
