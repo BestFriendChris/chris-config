@@ -27,8 +27,8 @@
   sync = "!git fetch --all; echo in; git slog ..origin/master; echo out; git slog origin/master.."
 
 # Show how far away the branches are from master; smaller is better
-  br-distance-one = "!bash -c 'git rev-list --left-only --pretty=oneline master...$1 | wc -l | sed \"s/$/ - $1/\"' -"
-  br-distance = "!bash -c 'for b in `git branch | sed -e \"s/\\*//\" -e \"s/ master$//\"`; do git br-distance-one $b; done | sort -n'"
+  br-distance-one = "!bash -c 'git rev-list --left-only --pretty=oneline master...$1 | wc -l | sed -e \"s,$, - $1,\" -e \"s,remotes/,,\"' -"
+  br-distance = "!bash -c 'for b in `git branch -a | sed -e \"s/\\*//\" -e \"s/ master$//\"`; do git br-distance-one $b; done | sort -n'"
 [color]
   ui=true
 [push]
