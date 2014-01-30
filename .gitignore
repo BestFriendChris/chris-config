@@ -1,6 +1,7 @@
-vim/_vim/swp/*
-zsh/.history
-zsh/site-local/*
-zsh/.zcompdump*
-zsh/.znamedirs
-vim/_vim/.netrwhist
+/vim/_vim/swp/*
+/zsh/.history
+/zsh/.zcompdump*
+/zsh/.znamedirs
+/vim/_vim/.netrwhist
+
+site-local
