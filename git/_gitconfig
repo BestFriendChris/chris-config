@@ -4,19 +4,27 @@
   br = branch
   co = checkout
   lc = log ORIG_HEAD.. --stat --no-merges
+  di = diff
+  dc = diff --cached
+  aa = add --all
   headless = !sh -c 'git symbolic-ref HEAD refs/heads/$0 && rm .git/index && git clean -fdx'
   remove-deleted = !git ls-files -dz --exclude-standard | xargs -0 git rm
   add-untracked  = !git ls-files -oz --exclude-standard | xargs -0 git add -v
   add-modified   = !git ls-files -mz --exclude-standard | xargs -0 git add -v
 
-# hg command parity
   addre = !git remove-deleted && git add-untracked && git add-modified
   purge = clean -f
   rollback = reset --soft HEAD^
   root = !pwd
   slog = log --pretty=oneline --abbrev-commit
+  slog-br = !git log --pretty=oneline --abbrev-commit $1..
   sin = !git fetch -q && git slog ..origin/master
   sout = !git fetch -q && git slog origin/master..
+
+  difst = "!bash -c 'git diff --stat $0 HEAD'"
+  difnst = "!bash -c 'git diff --numstat $0 HEAD'"
+
+  sync = "!git fetch --all; echo in; git slog ..origin/master; echo out; git slog origin/master.."
 
 # Show how far away the branches are from master; smaller is better
   br-distance-one = "!bash -c 'git rev-list --left-only --pretty=oneline master...$1 | wc -l | sed \"s/$/ - $1/\"' -"
