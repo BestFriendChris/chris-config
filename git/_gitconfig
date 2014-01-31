@@ -29,10 +29,23 @@
 # Show how far away the branches are from master; smaller is better
   br-distance-one = "!bash -c 'git rev-list --left-only --pretty=oneline master...$1 | wc -l | sed -e \"s,$, - $1,\" -e \"s,remotes/,,\"' -"
   br-distance = "!bash -c 'for b in `git branch -a | sed -e \"s/\\*//\" -e \"s/ master$//\"`; do git br-distance-one $b; done | sort -n'"
+
+  head = !git l -1
+  h = !git head
+  hp = "!. ~/.githelpers && show_git_head"
+  r = !git l -15
+  ra = !git r --all
+  l = "!. ~/.githelpers && pretty_git_log"
+  la = !git l --all
 [color]
   ui=true
 [push]
   default = tracking
+[core]
+  editor = /usr/bin/vim
+  excludesfile = /Users/cturner/.gitignore_global
 [user]
   name = Chris Turner
   email = j.chris.turner@gmail.com
+[merge]
+  defaultToUpstream = true
