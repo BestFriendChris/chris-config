@@ -2,10 +2,12 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-silent! call pathogen#runtime_append_all_bundles()
+"silent! call pathogen#runtime_append_all_bundles()
 
-silent! helptags $VIMRUNTIME/doc
-silent! call pathogen#helptags()
+"silent! helptags $VIMRUNTIME/doc
+"silent! call pathogen#helptags()
+
+execute pathogen#infect()
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
