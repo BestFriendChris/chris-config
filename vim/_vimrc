@@ -221,3 +221,5 @@ nmap <Leader><Leader> <C-^>
 let maplocalleader=","
 
 nnoremap g/ /\v
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
