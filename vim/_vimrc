@@ -97,8 +97,8 @@ nmap <silent> <Leader><Space> :noh<CR>
 set directory=~/.vim/swp//
 
 " Rotate between number, relativenumber, and nothing
-nmap <silent> <C-N><C-N> :exec 'set ' &nu+&rnu ? 'rnu!' : 'nu'<CR>
-nmap <silent> <C-W><C-W> :set invwrap<CR>
+nmap <silent> <C-N><C-N> :exec 'setlocal ' &nu+&rnu ? 'rnu!' : 'nu'<CR>
+nmap <silent> <C-W><C-W> :setlocal invwrap<CR>
 nmap <silent> <C-G><C-G> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
 nmap <silent> <C-Z><C-Z> :let &foldcolumn = ( &foldcolumn == 0 ? 5 : 0 )<CR>
 
@@ -168,9 +168,11 @@ set relativenumber
 set visualbell
 
 " Use man in a new window
-runtime! ftplugin/man.vim
+"runtime! ftplugin/man.vim
 "nmap K <Leader>K
 "vmap K "my:Man <C-R>m<CR>
+" hate-hate-hate using K to open man page
+nmap K <Nop>
 
 " Change directory of the current buffer to be the same as the file
 command! -n=0 Cdl lcd %:p:h
