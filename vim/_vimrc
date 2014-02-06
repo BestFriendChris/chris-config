@@ -219,3 +219,5 @@ cnoremap %% <C-R>=expand('%:h').'/'<CR>
 nmap <Leader><Leader> <C-^>
 
 let maplocalleader=","
+
+nnoremap g/ /\v
