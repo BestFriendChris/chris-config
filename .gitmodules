@@ -75,6 +75,24 @@
 [submodule "vim/_vim/bundle/vim-color-vividchalk"]
 	path = vim/_vim/bundle/vim-color-vividchalk
 	url = git://github.com/tpope/vim-vividchalk.git
+[submodule "vim/_vim/bundle/vim-fireplace"]
+	path = vim/_vim/bundle/vim-fireplace
+	url = git://github.com/tpope/vim-fireplace.git
+[submodule "vim/_vim/bundle/vim-classpath"]
+	path = vim/_vim/bundle/vim-classpath
+	url = git://github.com/tpope/vim-classpath.git
+[submodule "vim/_vim/bundle/vim-clojure-static"]
+	path = vim/_vim/bundle/vim-clojure-static
+	url = git://github.com/guns/vim-clojure-static.git
+[submodule "vim/_vim/bundle/rainbow_parentheses"]
+	path = vim/_vim/bundle/rainbow_parentheses
+	url = git://github.com/kien/rainbow_parentheses.vim.git
+[submodule "vim/_vim/bundle/vim-scriptease"]
+	path = vim/_vim/bundle/vim-scriptease
+	url = git://github.com/tpope/vim-scriptease.git
+[submodule "vim/_vim/bundle/vim-ruby-conque"]
+	path = vim/_vim/bundle/vim-ruby-conque
+	url = git://github.com/skwp/vim-ruby-conque.git
 [submodule "vim/_vim/bundle/vim-elixir"]
 	path = vim/_vim/bundle/vim-elixir
 	url = https://github.com/elixir-lang/vim-elixir.git

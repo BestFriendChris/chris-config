@@ -74,13 +74,13 @@ map <C-L> gt
 
 " TRYING SOMETHING NEW FOR NOW. The following is no longer accurate
 " ---Default to using a stack style editing (current window always max)---
-"set winminheight=0
+set winminheight=0
 "au VimEnter * set winheight=999
 set splitbelow
 
 " Change from using stack style editing to normal, equal sized windows and back
 "nmap <silent> <Leader>s :let &winheight = ( &winheight == 999 ? 10 : 999)<CR>
-"nmap <silent> <C-S> :let &winheight = ( &winheight == 999 ? 10 : 999)<CR><C-W>=
+nmap <silent> <C-S> :let &winheight = ( &winheight == 999 ? 10 : 999)<CR><C-W>=
 
 
 " Keep 2 lines of context when scrolling
@@ -219,3 +219,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<CR>
 nmap <Leader><Leader> <C-^>
 
 let maplocalleader=","
+
+nnoremap g/ /\v
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
