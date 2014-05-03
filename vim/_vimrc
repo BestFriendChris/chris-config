@@ -2,10 +2,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-silent! call pathogen#runtime_append_all_bundles()
+execute pathogen#infect()
 
 silent! helptags $VIMRUNTIME/doc
-silent! call pathogen#helptags()
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -135,7 +134,7 @@ let NERDTreeQuitOnOpen = 1
 "Vim Clojure stuff
 let vimclojure#HighlightBuiltins = 1
 let vimclojure#ParenRainbow=1
-let vimclojure#WantNailgun=1
+let vimclojure#WantNailgun=0
 let vimclojure#DynamicHighlighting=1
 let vimclojure#SplitSize=15
 let vimclojure#FuzzyIndent = 1
@@ -162,6 +161,7 @@ let g:user_zen_settings = {
 colorscheme vividchalk
 set nowrap
 set linebreak
+set number
 set relativenumber
 set visualbell
 
