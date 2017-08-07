@@ -4,8 +4,8 @@
   br = branch
   co = checkout
   lc = log ORIG_HEAD.. --stat --no-merges
-  di = diff
-  dc = diff --cached
+  di = diff --ignore-space-change
+  dc = diff --ignore-space-change --cached
   aa = add --all
   headless = !sh -c 'git symbolic-ref HEAD refs/heads/$0 && rm .git/index && git clean -fdx'
   remove-deleted = !git ls-files -dz --exclude-standard | xargs -0 git rm
@@ -16,33 +16,34 @@
   purge = clean -f
   rollback = reset --soft HEAD^
   root = !pwd
-  slog = log --pretty=oneline --abbrev-commit
-  slog-br = !git log --pretty=oneline --abbrev-commit $1..
-  sin = !git fetch -q && git slog ..origin/master
-  sout = !git fetch -q && git slog origin/master..
+  sin = !git fetch -q && git l ..origin/master
+  sout = !git fetch -q && git l origin/master..
 
-  difst = "!bash -c 'git diff --stat $0 HEAD'"
-  difnst = "!bash -c 'git diff --numstat $0 HEAD'"
+  difst = "!bash -c 'git diff --ignore-space-change --stat $0 HEAD'"
+  difnst = "!bash -c 'git diff --ignore-space-change --numstat $0 HEAD'"
 
-  sync = "!git fetch --all; echo in; git slog ..origin/master; echo out; git slog origin/master.."
+  sync = "!git fetch --all; echo in; git l ..origin/master; echo out; git l origin/master.."
 
 # Show how far away the branches are from master; smaller is better
   br-distance-one = "!bash -c 'git rev-list --left-only --pretty=oneline master...$1 | wc -l | sed -e \"s,$, - $1,\" -e \"s,remotes/,,\"' -"
-  br-distance = "!bash -c 'for b in `git branch -a | sed -e \"s/\\*//\" -e \"s/ master$//\"`; do git br-distance-one $b; done | sort -n'"
+  br-distance = "!bash -c 'for b in `git branch -a | sed -e \"s/\\*//\" -e \"s/ master$//\" -e \"s/^ *//\" | cut -f1 -d \" \"`; do git br-distance-one $b; done | sort -n'"
 
+  l = "!. ~/.githelpers && pretty_git_log"
+  lg = !git l --graph
+  la = !git lg --all
   head = !git l -1
   h = !git head
-  hp = "!. ~/.githelpers && show_git_head"
-  r = !git l -15
+  r = !git lg -15
   ra = !git r --all
-  l = "!. ~/.githelpers && pretty_git_log"
-  la = !git l --all
+
+  br-ls   = "!bash -c 'git branch | sed -e \"s/\\*//\" -e \"/ ->/d\" | xargs -n1 git log --pretty=\"tformat:%at}%C(red)%D}\\`    %C(yellow)%h}%Cgreen%ar}%C(bold blue)<%aN>}%Creset%s\" -1 | sort | sed -e \"s/^[0-9]*}//\" | column -s \"}\" -t | tr \\` \\\\n'"
+  br-ls-a = "!bash -c 'git branch -a | grep \"remotes/origin\" | sed -e \"s/\\*//\" -e \"s/^ *remotes\\///\" -e \"/ ->/d\" | xargs -n1 git log --pretty=\"tformat:%at}%C(red)%D}\\`    %C(yellow)%h}%Cgreen%ar}%C(bold blue)<%aN>}%Creset%s\" -1 | sort | sed -e \"s/^[0-9]*}//\" | column -s \"}\" -t | tr \\` \\\\n'"
 [color]
   ui=true
 [push]
   default = tracking
 [core]
-  editor = /usr/bin/vim
+  editor = /usr/local/bin/vim
   excludesfile = /Users/cturner/.gitignore_global
 [user]
   name = Chris Turner
