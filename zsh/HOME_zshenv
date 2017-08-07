@@ -1,3 +1,0 @@
-ZDOTDIR=~/.installed/chris-config/zsh
-
-source $ZDOTDIR/.zshenv
